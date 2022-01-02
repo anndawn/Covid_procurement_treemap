@@ -91,7 +91,8 @@ function buildHierarchy(flat_data, level_names, measure_1, measure_2=null, measu
           .domain(colorDomain());
         color_accessor = function(d) { return color(d.color_metric); };
       } else {
-        color = d3.scaleOrdinal().range(color_range || d3.schemeCategory20);
+        color = d3.scaleOrdinal().range(color_range || ["#28BF64", "#E95A76", "#535C61", "#50A9FF", "#D19258", "#017E72", "#2E67AB", "#EFB821", "#FF7629", "#622E2E", "#DA4343", "#828282", "#457884", "#B2A55F", "#C05194", "#3BC996", "#7C4BA5", "#95B587", "#A16969", "#55405C","#174863"]);
+          // d3.schemeCategory20);
         color_accessor = function(d) { return color(d.parent.data.key); };
       }
     
