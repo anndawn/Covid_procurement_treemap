@@ -91,7 +91,7 @@ function buildHierarchy(flat_data, level_names, measure_1, measure_2=null, measu
           .domain(colorDomain());
         color_accessor = function(d) { return color(d.color_metric); };
       } else {
-        color = d3.scaleOrdinal().range(color_range || d3.schemeCategory10);
+        color = d3.scaleOrdinal().range(color_range || d3.schemeCategory20);
         color_accessor = function(d) { return color(d.parent.data.key); };
       }
     
@@ -339,12 +339,12 @@ function buildHierarchy(flat_data, level_names, measure_1, measure_2=null, measu
 }
     
   
-    d3.csv('data_use.csv', function(error, data) {
+    d3.csv('treemap.csv', function(error, data) {
       var data2={};
       var hiero = [
-        'Institution_name',
+        'Cleaned_name',
         'Item_desp',
-        'Supplier_name'
+        'Service_desp'
       ];   
       updateapp(hiero,data)
 
@@ -354,10 +354,10 @@ function buildHierarchy(flat_data, level_names, measure_1, measure_2=null, measu
           if (dep=='All') {
             updateapp(hiero,data)
           }else{
-          data2=data.filter(d=>d.Institution_name==dep);
+          data2=data.filter(d=>d.Cleaned_name==dep);
         var hier2 = [
           'Item_desp',
-          'Supplier_name'
+          'Service_desp'
         ];
         updateapp(hier2,data2)
       }
