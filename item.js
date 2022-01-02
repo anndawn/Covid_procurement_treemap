@@ -40,9 +40,9 @@ function buildHierarchy(flat_data, level_names, measure_1, measure_2=null, measu
       // Clear any existing svg elements
       d3.selectAll('svg').remove();
     
-      var margin = {top: 32, right:0, bottom: 0, left: 5},
-          width = window.innerWidth-margin.right-margin.left-10,
-          height = window.innerHeight - margin.top - margin.bottom-10,
+      var margin = {top: 32, right:0, bottom: 15, left: 5},
+          width = window.innerWidth-margin.right-margin.left-15,
+          height = window.innerHeight - margin.top - margin.bottom-30,
           formatNumber = d3.format(",d"),
           padding = 0.1,
           transitioning;
